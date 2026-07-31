@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Listings</title>
+</head>
+<body>
+
+<h1>All Listings</h1>
+
+<a href="/listings/new">Create New Listing</a>
+
+<hr>
+
+<% for(let listing of allListings){ %>
+
+    <h3><%= listing.title %></h3>
+
+    <p>
+        ₹ <%= listing.price.toLocaleString("en-IN") %>
+    </p>
+
+    <a href="/listings/<%= listing._id %>">
+        View Details
+    </a>
+
+    <hr>
+
+<% } %>
+
+</body>
+</html>
