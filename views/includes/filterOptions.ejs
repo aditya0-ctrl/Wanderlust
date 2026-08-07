@@ -1,0 +1,30 @@
+<div class="compact-filter-wrapper">
+    <form action="/listings" method="GET" class="compact-filter-form">
+
+        <% if (typeof category !== "undefined" && category) { %>
+            <input type="hidden" name="category" value="<%= category %>">
+        <% } %>
+
+        <input
+            type="number"
+            name="maxPrice"
+            class="form-control"
+            placeholder="💰 Max Price">
+
+        <select
+            name="sort"
+            class="form-select">
+
+            <option value="">Sort</option>
+            <option value="low">Price: Low → High</option>
+            <option value="high">Price: High → Low</option>
+            <option value="newest">Newest</option>
+
+        </select>
+
+        <button class="btn btn-danger">
+            Apply
+        </button>
+
+    </form>
+</div>
