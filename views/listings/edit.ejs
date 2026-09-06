@@ -82,6 +82,39 @@
                 >
             </div>
 
+            <!-- Category -->
+<div class="mb-3">
+    <label class="form-label">Category</label>
+
+    <select
+        class="form-select"
+        name="listing[category]"
+        required
+    >
+        <option value="">Select Category</option>
+
+        <option value="Beach" <%= listing.category === "Beach" ? "selected" : "" %>>
+            Beach
+        </option>
+
+        <option value="Mountain" <%= listing.category === "Mountain" ? "selected" : "" %>>
+            Mountain
+        </option>
+
+        <option value="Camping" <%= listing.category === "Camping" ? "selected" : "" %>>
+            Camping
+        </option>
+
+        <option value="City" <%= listing.category === "City" ? "selected" : "" %>>
+            City
+        </option>
+
+        <option value="Pool" <%= listing.category === "Pool" ? "selected" : "" %>>
+            Pool
+        </option>
+    </select>
+</div>
+
             <!-- Button -->
             <button class="btn btn-dark">
                 Update Listing
