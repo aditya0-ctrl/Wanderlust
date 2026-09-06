@@ -18,8 +18,9 @@ const ExpressError = require("./utils/ExpressError");
 const listingRouter = require("./routes/listings");
 
 const app = express();
+require("dotenv").config();
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const MONGO_URL = process.env.ATLASDB_URL;
 
 // Database Connection
 async function main() {
@@ -67,7 +68,7 @@ const validateListing = (req, res, next) => {
 };
 
 const sessionOptions = {
-    secret: "mysupersecretcode",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -108,8 +109,10 @@ app.use("/", userRouter);
 app.use("/wishlist", wishlistRouter);
 
 // Server
-app.listen(8080, () => {
-    console.log("Server running on port 8080");
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
 app.use((req, res, next) => {
